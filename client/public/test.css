@@ -1,0 +1,83 @@
+#landing_container {
+  display: flex;
+  max-height: 100vh;
+  min-height: 100vh;
+}
+#logo {
+  color: white;
+  flex: auto;
+  width: 50%;
+  background: #53C5B9;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  padding: 4rem 10rem;
+}
+#logo_img, .logo_text {
+  text-align: center;
+  flex: 1 1 100%;
+}
+#logo_img img {
+  color: white;
+  width: 100%;
+  height: auto;
+}
+#fhalf {
+  background: #3C3E52;
+  flex: auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 10rem;
+}
+.f_ind {
+  color: white;
+  display: inline-block;
+}
+.f_ind_active {
+  border-bottom: 1px solid #53C5B9;
+}
+#forms a {
+  margin: 0 1rem;
+}
+#forms button {
+  margin: 0 5rem;
+}
+
+
+
+
+
+
+
+.SlideIn-appear {
+  transform: translateX(30px);
+  opacity: 0;
+}
+.SlideIn-appear.SlideIn-appear-active {
+  opacity: 1;
+  transform: translateX(0);;
+  transition: all 0.6s linear;
+}
+.SlideIn-enter {
+    opacity: 0;
+    transform: translateX(30px);
+}
+.SlideIn-enter.SlideIn-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.2s linear 0.4s;
+}
+.SlideIn-leave {
+    opacity: 1.0;
+    transform: translateX(0);
+}
+.SlideIn-leave.SlideIn-leave-active {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    transform: translateX(-30px);
+    transition: all 0.2s linear;
+}

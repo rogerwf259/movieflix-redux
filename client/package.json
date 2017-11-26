@@ -1,0 +1,39 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": {
+    "/signup": {
+      "target": "http://localhost:5000"
+    },
+    "/login": {
+      "target": "http://localhost:5000"
+    },
+    "/current_user": {
+      "target": "http://localhost:5000"
+    },
+    "/logout": {
+      "target": "http://localhost:5000"
+    }
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "classnames": "^2.2.5",
+    "jquery": "^3.2.1",
+    "materialize-css": "^0.100.2",
+    "react": "^16.1.1",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-dom": "^16.1.1",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.17",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
