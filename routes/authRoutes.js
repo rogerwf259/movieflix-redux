@@ -2,18 +2,18 @@ const passport = require('passport');
 
 module.exports = (app) => {
     app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect: '/dashboard',
-            failureRedirect: '/Landing'
+            successRedirect: '/hub',
+            failureRedirect: '/home'
         })
     );
     app.post('/login', passport.authenticate('local-login', {
-            successRedirect: '/dashboard',
-            failureRedirect: '/Landing'
+            successRedirect: '/hub',
+            failureRedirect: '/home'
         }
     ));
     app.get('/logout', (req, res) => {
         req.session.destroy();
-        res.redirect('/Landing');
+        res.redirect('/home');
         console.log(req.user);
     });
     app.get('/current_user', (req, res) => {

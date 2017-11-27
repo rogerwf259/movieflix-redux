@@ -13,9 +13,9 @@ const Dashboard = ({ routes }) => {
         <div>
             <h2>Dashboard</h2>
             <ul>
-                <li><NavLink to="/dashboard/popular">Popular</NavLink></li>
-                <li><NavLink to="/dashboard/categories">Categories</NavLink></li>
-                <li><NavLink to="/dashboard/watchlist">Watchlist</NavLink></li>
+                <li><NavLink to="/hub/popular">Popular</NavLink></li>
+                <li><NavLink to="/hub/categories">Categories</NavLink></li>
+                <li><NavLink to="/hub/watchlist">Watchlist</NavLink></li>
             </ul>
             {routes.map((route, i) => (<RouteWithSubRoutes key={i} {...route}/>))}
         </div>

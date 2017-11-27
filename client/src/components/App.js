@@ -11,7 +11,7 @@ const Categories = () => <h2>Categories</h2>
 const WatchList = () => <h2>WatchList</h2>
 const routes = [
     {
-        path: '/',
+        path: '/home',
         component: Landings,
         routes: [
             {
@@ -25,19 +25,19 @@ const routes = [
         ]
     },
     {
-        path: '/dashboard',
+        path: '/hub',
         component: Dashboard,
         routes: [
             {
-                path: '/dashboard/popular',
+                path: '/hub/popular',
                 component: Popular
             },
             {
-                path: '/dashboard/categories',
+                path: '/hub/categories',
                 component: Categories
             },
             {
-                path: '/dashboard/watchlist',
+                path: '/hub/watchlist',
                 component: WatchList
             }
         ]
