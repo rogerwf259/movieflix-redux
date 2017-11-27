@@ -3,31 +3,25 @@ import { NavLink } from 'react-router-dom';
 
 const SideNav = () => {
     return (
-        <nav id="menu">
-            <div className="m_item">
-                <NavLink className="title" to="/">UPIFLIX</NavLink>
+        <div id="side-bar">
+            <div id="logo_sidenav">
+                <p>MOVIEFLIX</p>
             </div>
-            <div className="m_item">
-                <NavLink to="/dashboard">Popular</NavLink>
-                <i className="m_icon fa fa-bar-chart" aria-hidden="true"></i>
+            <nav id="menu">
+                    <div className="menu_item">
+                        <a href="#">Popular</a>
+                    </div>
+                    <div className="menu_item">
+                        <a href="#">Categories</a>
+                    </div>
+                    <div className="menu_item">
+                        <a href="#">Watchlist</a>
+                    </div>
+            </nav>
+            <div id="user_ack">
+                <p>Welcome Roger</p>
             </div>
-            <div className="m_item">
-                <NavLink to="/categories">Categories</NavLink>
-                <i className="m_icon fa fa-film" aria-hidden="true"></i>
-            </div>
-            <div className="m_item">
-                <NavLink to="/watchlist">Watchlist</NavLink>
-                <i className="m_icon fa fa-bookmark" aria-hidden="true"></i>
-            </div>
-            <div className="m_item">
-                <NavLink to="/history">History</NavLink>
-                <i className="m_icon fa fa-history" aria-hidden="true"></i>
-            </div>
-            <div className="m_item">
-                <NavLink to="/settings">Settings</NavLink>
-                <i className="m_icon fa fa-cog" aria-hidden="true"></i>
-            </div>
-      </nav>
+        </div>
     );
 }
 
