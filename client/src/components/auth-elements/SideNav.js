@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const SideNav = () => {
+const SideNav = (props) => {
     return (
         <div id="side-bar">
             <div id="logo_sidenav">
@@ -19,7 +19,7 @@ const SideNav = () => {
                     </div>
             </nav>
             <div id="user_ack">
-                <p>Welcome Roger</p>
+                <p>{`Welome ${props.data.name}`}</p>
             </div>
         </div>
     );

@@ -17,7 +17,9 @@ module.exports = (app) => {
         console.log(req.user);
     });
     app.get('/current_user', (req, res) => {
-        res.send(req.user);
-        console.log(req.user);
+        const user = req.user;
+        res.send(user);
+        //res.send(req.user);
+        //console.log(req.user);
     });
 };

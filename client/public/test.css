@@ -49,8 +49,12 @@
 
 
 #side-bar {
-  flex: 1;
+  top:0;
+  left: 0;
+  position: fixed;
+  width: 10%;
   display: flex;
+  height: 100vh;
   flex-flow: column wrap;
   background:#3C3E52;
 }
@@ -79,7 +83,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-#dashboard {
-  display: flex;
 }

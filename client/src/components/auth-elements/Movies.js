@@ -13,7 +13,7 @@ class Movies extends Component {
     }
     render() {
         return (
-            <div style={{ width: "90%", height: "auto" }}>
+            <div style={{ width: "90%", height: "auto", position: "absolute", right: "0" }}>
                 <div className="row">
                     {this.state.movies.map((movie, i) => <Card key={i} data={movie}/>)}
                 </div>

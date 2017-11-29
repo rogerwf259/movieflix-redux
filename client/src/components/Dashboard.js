@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 import Movies from './auth-elements/Movies';
 import SideNav from './auth-elements/SideNav';
@@ -11,7 +12,13 @@ const RouteWithSubRoutes = (route) => (
     )}/>
 )
 
-const Dashboard = ({ routes }) => {
+class Dashboard extends Component {
+    state = { user: [] };
+    componentDidMount() {
+        axios.get('/current_user').then((response) => this.setState({ user: response.data }));
+    }
+    render() {
+        //console.log(this.state.user.name);
     return (
         <div id="dashboard">
             {/*<h2>Dashboard</h2>
@@ -21,10 +28,11 @@ const Dashboard = ({ routes }) => {
                 <li><NavLink to="/hub/watchlist">Watchlist</NavLink></li>
             </ul>
             {routes.map((route, i) => (<RouteWithSubRoutes key={i} {...route}/>))}*/}
-            <SideNav />
+            <SideNav data={this.state.user} />
             <Movies />
         </div>
     );
+}
 }
 
 export default Dashboard;
