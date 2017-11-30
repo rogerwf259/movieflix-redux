@@ -5,10 +5,8 @@ import Login from './auth-elements/Login';
 import Signup from './auth-elements/Signup';
 import Landings from './Tacos';
 import Dashboard from './Dashboard';
+import Movies from './auth-elements/Movies';
 
-const Popular = () => <h2>Popular</h2>
-const Categories = () => <h2>Categories</h2>
-const WatchList = () => <h2>WatchList</h2>
 const routes = [
     {
         path: '/home',
@@ -30,16 +28,15 @@ const routes = [
         routes: [
             {
                 path: '/hub/popular',
-                component: Popular
+                component: Movies
             },
             {
                 path: '/hub/categories',
-                component: Categories
+                component: Movies
             },
             {
                 path: '/hub/watchlist',
-                component: WatchList
-            }
+                component: Movies            }
         ]
     }
 ];

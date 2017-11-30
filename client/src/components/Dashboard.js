@@ -21,15 +21,8 @@ class Dashboard extends Component {
         //console.log(this.state.user.name);
     return (
         <div id="dashboard">
-            {/*<h2>Dashboard</h2>
-            <ul>
-                <li><NavLink to="/hub/popular">Popular</NavLink></li>
-                <li><NavLink to="/hub/categories">Categories</NavLink></li>
-                <li><NavLink to="/hub/watchlist">Watchlist</NavLink></li>
-            </ul>
-            {routes.map((route, i) => (<RouteWithSubRoutes key={i} {...route}/>))}*/}
             <SideNav data={this.state.user} />
-            <Movies />
+            {this.props.routes.map((route, i) => (<RouteWithSubRoutes key={i} {...route}/>))}
         </div>
     );
 }
