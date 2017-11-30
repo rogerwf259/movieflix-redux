@@ -1,15 +1,10 @@
 import React from 'react';
 import { NavLink, Route } from 'react-router-dom';
 
+import Login from './auth-elements/Login';
+import Signup from './auth-elements/Signup';
 
-const RouteWithSubRoutes = (route) => (
-    <Route path={route.path} render={props => (
-      // pass the sub-routes down to keep nesting
-      <route.component {...props} routes={route.routes}/>
-    )}/>
-)
-
-const Landings = ({ routes }) => {
+const Landings = ({ match }) => {
     return (
         <div id="landing_container">
             <div id="logo">
@@ -21,10 +16,11 @@ const Landings = ({ routes }) => {
             </div>
             <div id="fhalf">
                 <div id="forms">      
-                    <NavLink className="f_ind" activeClassName="f_ind_active" to="/home/signup">Sign Up</NavLink>
+                    <NavLink className="f_ind" activeClassName="f_ind_active" to={`/home/signup`}>Sign Up</NavLink>
                     <p className="f_ind">or</p>
-                    <NavLink className="f_ind" activeClassName="f_ind_active" to="/home/login">Log In</NavLink>
-                    {routes.map((route, i) => (<RouteWithSubRoutes key={i} {...route}/>))}
+                    <NavLink className="f_ind" activeClassName="f_ind_active" to={`/home/login`}>Log In</NavLink>
+                    <Route path={`/home/login`} render={() => <Login />}/>
+                    <Route path={`/home/signup`} render={() => <Signup />}/>
                 </div>
             </div>
         </div>

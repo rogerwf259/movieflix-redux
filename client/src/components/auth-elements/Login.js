@@ -18,7 +18,6 @@ const Login = () => {
                 </div>
                 <button className="btn waves-effect waves-light" type="submit">
                         Log In
-                    <i className="material-icons right" />
                 </button>
             </form>
         </div>

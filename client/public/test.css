@@ -68,19 +68,20 @@
   justify-content: center;
   align-items: center;
 }
-#menu {
+#menusa {
   flex: 5;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
 }
-.menu_item {
+.menusa_item {
   margin: .5rem 0;
 }
 #user_ack {
   flex: 2;
   display: flex;
+  flex-flow: column wrap;
   justify-content: center;
   align-items: center;
 }

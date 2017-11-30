@@ -1,6 +1,9 @@
 module.exports = (req, res, next) => {
     if (!req.user) {
-        return res.redirect('/home');
+        return (
+            res.send({message: 'Not logged in'}),
+            res.redirect('/home')
+        );
     }
     next();
 };

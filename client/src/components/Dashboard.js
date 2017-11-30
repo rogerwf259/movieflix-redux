@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import axios from 'axios';
 
 import Movies from './auth-elements/Movies';
 import SideNav from './auth-elements/SideNav';
-
-const RouteWithSubRoutes = (route) => (
-    <Route exact path={route.path} render={props => (
-      // pass the sub-routes down to keep nesting
-      <route.component {...props} routes={route.routes}/>
-    )}/>
-)
+import Categories from './auth-elements/Categories';
+import Watchlist from './auth-elements/Watchlist';
 
 class Dashboard extends Component {
-    state = { user: [] };
+    state = { user: [], movies: [] };
     componentDidMount() {
-        axios.get('/current_user').then((response) => this.setState({ user: response.data }));
+        axios.all([
+            axios.get('https://rogerwf259.github.io/MoviesJSON/movies/movies.json'),
+            axios.get('/current_user')
+        ]).then(axios.spread((movRes, userRes) => {
+            this.setState({ user: userRes.data, movies: movRes.data });
+        }));
     }
     render() {
-        //console.log(this.state.user.name);
     return (
         <div id="dashboard">
             <SideNav data={this.state.user} />
-            {this.props.routes.map((route, i) => (<RouteWithSubRoutes key={i} {...route}/>))}
+            <Route path="/dashboard/popular" render={(props) => <Movies {...props} movies={this.state.movies} />}/>
+            <Route path="/dashboard/categories" render={() => <Categories />}/>
+            <Route path="/dashboard/watchlist" render={(props) => <Watchlist {...props} movies={this.state.movies}/>}/>
         </div>
     );
 }

@@ -2,24 +2,22 @@ const passport = require('passport');
 
 module.exports = (app) => {
     app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect: '/hub',
+            successRedirect: '/dashboard',
             failureRedirect: '/home'
         })
     );
     app.post('/login', passport.authenticate('local-login', {
-            successRedirect: '/hub',
+            successRedirect: '/dashboard',
             failureRedirect: '/home'
         }
     ));
     app.get('/logout', (req, res) => {
         req.session.destroy();
-        res.redirect('/home');
+        res.redirect('/');
         console.log(req.user);
     });
     app.get('/current_user', (req, res) => {
         const user = req.user;
         res.send(user);
-        //res.send(req.user);
-        //console.log(req.user);
     });
 };
