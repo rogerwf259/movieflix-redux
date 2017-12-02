@@ -17,6 +17,9 @@
     },
     "/add_watchlist": {
       "target": "http://localhost:5000"
+    },
+    "/remove_from_watchlist": {
+      "target": "http://localhost:5000"
     }
   },
   "dependencies": {
@@ -28,6 +31,7 @@
     "react": "^16.1.1",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.1.1",
+    "react-materialize": "^1.1.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",

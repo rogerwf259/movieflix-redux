@@ -10,4 +10,13 @@ module.exports = (app) => {
         req.user.watchlist.push(req.body.title);
         req.user.save().then((user) => res.send(user));
     });
+
+    app.post('/remove_from_watchlist', requireLogin, (req, res) => {
+        const index = req.user.watchlist.indexOf(req.body.title);
+        if (index !== -1) {
+            req.user.watchlist.splice(index, 1);
+            req.user.save().then((user) => res.send(user));
+        } else {
+        res.send('Success');}
+    });
 };

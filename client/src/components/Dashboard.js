@@ -21,8 +21,8 @@ class Dashboard extends Component {
     return (
         <div id="dashboard">
             <SideNav data={this.state.user} />
-            <Route path="/dashboard/popular" render={(props) => <Movies {...props} movies={this.state.movies} />}/>
-            <Route path="/dashboard/categories" render={() => <Categories />}/>
+            <Route path="/dashboard/popular" render={() => <Movies />}/>
+            <Route path="/dashboard/categories/:id" render={(props) => <Categories {...props} movies={this.state.movies}/>}/>
             <Route path="/dashboard/watchlist" render={(props) => <Watchlist {...props} movies={this.state.movies}/>}/>
         </div>
     );

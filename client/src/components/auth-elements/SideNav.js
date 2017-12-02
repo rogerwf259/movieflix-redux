@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import Materialize from 'materialize-css/dist/js/materialize.min.js';
 import axios from 'axios';
 
 import Movies from './Movies';
@@ -14,22 +15,31 @@ class SideNav extends Component {
     return (
         <div id="side-bar">
             <div id="logo_sidenav">
-                <p>MOVIEFLIX</p>
+                <p className="btn pulse" >MOVIEFLIX</p>
             </div>
             <div id="menusa">
                     <div className="menusa_item">
-                        <Link to='/dashboard/popular' render={() => <Movies />}>Popular</Link>
+                        <NavLink to='/dashboard/popular' render={() => <Movies />}>Popular</NavLink>
                     </div>
                     <div className="menusa_item">
-                        <Link to='/dashboard/categories' render={() => <Categories />}>Categories</Link>
+                        <a className='dropdown-button' data-hover="true" data-activates='dropdown1'>Categories</a>
+                        <ul id='dropdown1' className='dropdown-content'>
+                            <li><Link to={`/dashboard/categories/Horror`} render={() => <Categories />}>Horror</Link></li>
+                            <li><Link to={`/dashboard/categories/Action`} render={() => <Categories />}>Action</Link></li>
+                            <li><Link to={`/dashboard/categories/Adventure`} render={() => <Categories />}>Adventure</Link></li>
+                            <li><Link to={`/dashboard/categories/Science Fiction`} render={() => <Categories />}>Science Fiction</Link></li>
+                            <li><Link to={`/dashboard/categories/Comedy`} render={() => <Categories />}>Comedy</Link></li>
+                            <li><Link to={`/dashboard/categories/Documental`} render={() => <Categories />}>Documental</Link></li>
+                        </ul>
                     </div>
                     <div className="menusa_item">
-                        <Link to='/dashboard/watchlist' render={() => <Watchlist />}>Watchlist</Link>
+                        <NavLink to='/dashboard/watchlist' render={() => <Watchlist />}>Watchlist</NavLink>
                     </div>
             </div>
             <div id="user_ack">
                 <p>{`Welome ${this.props.data.name}`}</p>
                 <button 
+                    id="logout"
                     className="btn waves-effect waves-light" 
                     onClick={() => {this.handleLogout()}}>
                         Log Out

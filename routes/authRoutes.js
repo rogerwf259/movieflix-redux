@@ -2,12 +2,12 @@ const passport = require('passport');
 
 module.exports = (app) => {
     app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect: '/dashboard',
+            successRedirect: '/dashboard/popular',
             failureRedirect: '/home'
         })
     );
     app.post('/login', passport.authenticate('local-login', {
-            successRedirect: '/dashboard',
+            successRedirect: '/dashboard/popular',
             failureRedirect: '/home'
         }
     ));

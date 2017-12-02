@@ -6,7 +6,7 @@ const Login = () => {
             <form id="form-test" method="post" action="/login">
                 <div className="row">
                     <div className="input-field col s12">
-                        <input name="email" placeholder="Your email goes here" id="email" type="text" />
+                        <input name="email" placeholder="Your email goes here" id="email" type="text" validate/>
                         <label className="active" htmlFor="email">EMAIL</label>
                     </div>
                 </div>
