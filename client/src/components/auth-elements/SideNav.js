@@ -6,6 +6,7 @@ import axios from 'axios';
 import Movies from './Movies';
 import Categories from './Categories';
 import Watchlist from './Watchlist';
+import { setTimeout } from 'timers';
 
 class SideNav extends Component {
     handleLogout() {
@@ -19,10 +20,10 @@ class SideNav extends Component {
             </div>
             <div id="menusa">
                     <div className="menusa_item">
-                        <NavLink to='/dashboard/popular' render={() => <Movies />}>Popular</NavLink>
+                        <NavLink to='/dashboard/popular' activeClassName="pop_wat_act" className="pop_wat" render={() => <Movies />}>Popular</NavLink>
                     </div>
                     <div className="menusa_item">
-                        <a className='dropdown-button' data-hover="true" data-activates='dropdown1'>Categories</a>
+                        <a className='dropdown-button pop_wat' data-hover="true" data-activates='dropdown1'>Categories</a>
                         <ul id='dropdown1' className='dropdown-content'>
                             <li><Link to={`/dashboard/categories/Horror`} render={() => <Categories />}>Horror</Link></li>
                             <li><Link to={`/dashboard/categories/Action`} render={() => <Categories />}>Action</Link></li>
@@ -33,7 +34,7 @@ class SideNav extends Component {
                         </ul>
                     </div>
                     <div className="menusa_item">
-                        <NavLink to='/dashboard/watchlist' render={() => <Watchlist />}>Watchlist</NavLink>
+                        <NavLink to='/dashboard/watchlist' activeClassName="pop_wat_act" className="pop_wat" render={() => <Watchlist />}>Watchlist</NavLink>
                     </div>
             </div>
             <div id="user_ack">
@@ -42,7 +43,7 @@ class SideNav extends Component {
                     id="logout"
                     to="/"
                     className="btn waves-effect waves-light" 
-                    onClick={() => {this.handleLogout()}}>
+                    onClick={() => {this.setTimeout(this.handleLogout(), 10000)}}>
                         Log out
                 </Link>
             </div>

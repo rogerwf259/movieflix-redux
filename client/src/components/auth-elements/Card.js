@@ -5,10 +5,21 @@ import Materialize from 'materialize-css/dist/js/materialize.min.js';
 
 class Card extends Component {
     handleWatchLater(title) {
-        axios.post('/add_watchlist', { title: title }).then((response) => console.log(response.data));
+        var stat;
+        axios.post('/add_watchlist', { title: title }).then((response) => {
+            console.log(response);
+            this.renderToast(response.data, title);
+        });
     }
     handleRemoveWatchlist(title) {
         axios.post('/remove_from_watchlist', { title: title }).then((response) => console.log(response.data));
+    }
+    renderToast(status, title) {
+        console.log(status);
+        if (status === 'existing movie'){
+            return (Materialize.toast(`${title} is already on your Watchlist!`, 3000, 'rounded'));
+         }
+         Materialize.toast(`Added ${title} to Watch Later!`, 3000, 'rounded');
     }
     whatToRender() {
         switch(this.props.location) {
@@ -33,7 +44,6 @@ class Card extends Component {
               <a 
                 onClick={() => {
                     this.handleWatchLater(title);
-                    Materialize.toast(`Added ${title} to Watch Later!`, 3000, 'rounded');
                 }} 
                 className="right"
             >

@@ -13,7 +13,6 @@ class Categories extends Component {
         this.setState({ genre: copy });
     }
     render() {
-        console.log(this.state.genre);
         return (
             <div style={{ width: "90%", height: "auto", position: "absolute", right: "0" }}>
                 <div className="row" style={{marginLeft: "3rem"}}>

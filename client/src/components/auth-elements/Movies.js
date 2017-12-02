@@ -3,10 +3,12 @@ import axios from 'axios';
 import Card from './Card';
 
 class Movies extends Component {
-    state = { movies: [] };
+    state = { movies: [], watchlist: [] };
     componentDidMount() {
-        axios.get('https://rogerwf259.github.io/MoviesJSON/movies/movies.json')
-        .then(response => this.setState({ movies: response.data }));
+            axios.get('https://rogerwf259.github.io/MoviesJSON/movies/movies.json').then((movRes) => {
+            this.setState({ movies: movRes.data });
+        });
+
     }
     render() {
         return (
