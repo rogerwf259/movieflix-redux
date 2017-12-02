@@ -13,7 +13,7 @@ module.exports = (app) => {
     ));
     app.get('/logout', (req, res) => {
         req.session.destroy();
-        res.redirect('/');
+        res.redirect('/home');
         console.log(req.user);
     });
     app.get('/current_user', (req, res) => {

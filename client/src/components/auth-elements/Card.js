@@ -33,7 +33,7 @@ class Card extends Component {
               <a 
                 onClick={() => {
                     this.handleWatchLater(title);
-                    Materialize.toast(`Added ${title} to Watch Later!`, 3000, 'rounded')
+                    Materialize.toast(`Added ${title} to Watch Later!`, 3000, 'rounded');
                 }} 
                 className="right"
             >
@@ -62,6 +62,7 @@ class Card extends Component {
           <a 
             onClick={() => {
                 this.handleRemoveWatchlist(title)
+                Materialize.toast(`Removed ${title} from Watchlist!`, 3000, 'rounded');
             }} 
             className="right"
         >

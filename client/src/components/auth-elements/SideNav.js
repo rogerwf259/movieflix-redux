@@ -38,12 +38,13 @@ class SideNav extends Component {
             </div>
             <div id="user_ack">
                 <p>{`Welome ${this.props.data.name}`}</p>
-                <button 
+                <Link 
                     id="logout"
+                    to="/"
                     className="btn waves-effect waves-light" 
                     onClick={() => {this.handleLogout()}}>
-                        Log Out
-                </button>
+                        Log out
+                </Link>
             </div>
         </div>
     );
