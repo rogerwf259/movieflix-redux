@@ -1,32 +1,27 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import axios from 'axios';
+import { connect } from 'react-redux';
 
-import Movies from './auth-elements/Movies';
-import SideNav from './auth-elements/SideNav';
-import Categories from './auth-elements/Categories';
-import Watchlist from './auth-elements/Watchlist';
+import Movies from './Movies';
+import SideNav from './SideNav';
+import Categories from './Categories';
+import Watchlist from './Watchlist';
 
 class Dashboard extends Component {
-    state = { user: [], movies: [] };
-    componentDidMount() {
-        axios.all([
-            axios.get('https://rogerwf259.github.io/MoviesJSON/movies/movies.json'),
-            axios.get('/current_user')
-        ]).then(axios.spread((movRes, userRes) => {
-            this.setState({ user: userRes.data, movies: movRes.data });
-        }));
-    }
     render() {
-    return (
-        <div id="dashboard">
-            <SideNav data={this.state.user} />
-            <Route path="/dashboard/popular" render={() => <Movies />}/>
-            <Route path="/dashboard/categories/:id" render={(props) => <Categories {...props} movies={this.state.movies}/>}/>
-            <Route path="/dashboard/watchlist" render={(props) => <Watchlist {...props} movies={this.state.movies}/>}/>
-        </div>
-    );
-}
+        return (
+            <div id="dashboard">
+                <SideNav data={this.props.user} />
+                <Route path="/dashboard/popular" render={() => <Movies movies={this.props.movies}/>}/>
+                <Route path="/dashboard/categories/:id" render={(props) => <Categories {...props} />}/>
+                <Route path="/dashboard/watchlist" render={(props) => <Watchlist />}/>
+            </div>
+        );
+    }
 }
 
-export default Dashboard;
+function mapStateToProps({ user, movies }) {
+    return { user, movies };
+}
+
+export default connect(mapStateToProps)(Dashboard);

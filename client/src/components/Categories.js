@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 import Card from './Card';
 
 class Categories extends Component {
-    state = { genre: [] };
     componentDidMount() {
-        const copy = [];
-        this.props.movies.map((movie, i) => {
-            if (movie.genre === this.props.match.params.id){
-                copy.push(movie);
-            }
-        });
-        this.setState({ genre: copy });
+        this.props.genreFetch(this.props.movies, this.props.match.params.id);
     }
     render() {
         return (
@@ -19,11 +14,15 @@ class Categories extends Component {
                     <h2>{this.props.match.params.id}</h2>
                 </div>
                 <div className="row">
-                    {this.state.genre.map((movie, i) => <Card key={i} data={movie} location="popular"/>)}
+                    {this.props.genre.map((gen, i) => <Card key={i} data={gen} location="popular"/>)}
                 </div>
             </div>
         );
     }
 }
 
-export default Categories;
+function mapStateToProps({ movies, genre }) {
+    return { movies, genre };
+}
+
+export default connect(mapStateToProps, actions)(Categories);

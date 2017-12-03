@@ -1,26 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 import { Link } from 'react-router-dom';
 import Materialize from 'materialize-css/dist/js/materialize.min.js';
 
 class Card extends Component {
-    handleWatchLater(title) {
-        axios.post('/add_watchlist', { title: title }).then((response) => {
-            console.log(response);
-            this.renderToast(response.data, title);
-        });
-    }
-    handleRemoveWatchlist(title) {
-        console.log('Inside remove watchlist');
-        axios.post('/remove_from_watchlist', { title: title }).then((response) => console.log(response.data));
-    }
-    renderToast(status, title) {
-        console.log(status);
-        if (status === 'existing movie'){
-            return (Materialize.toast(`${title} is already on your Watchlist!`, 3000, 'rounded'));
-         }
-         Materialize.toast(`Added ${title} to Watch Later!`, 3000, 'rounded');
-    }
     whatToRender() {
         switch(this.props.location) {
             case 'popular': 
@@ -42,9 +27,7 @@ class Card extends Component {
               <span className="card-title activator grey-text text-darken-4">{title}<i className="material-icons right">more_vert</i></span>
               <Link to={`/player/${title}`}>Play Now</Link>
               <a 
-                onClick={() => {
-                    this.handleWatchLater(title);
-                }} 
+                onClick={() => {this.props.updateWatchlist(title)}} 
                 className="right"
             >
                 Watch Later
@@ -70,10 +53,7 @@ class Card extends Component {
           <span className="card-title activator grey-text text-darken-4">{title}<i className="material-icons right">more_vert</i></span>
           <Link to={`/player/${title}`}>Play Now</Link>
           <a 
-            onClick={() => {
-                this.handleRemoveWatchlist(title)
-                Materialize.toast(`Removed ${title} from Watchlist!`, 3000, 'rounded');
-            }} 
+            onClick={() => {this.props.removeFromWatchlist(title)}} 
             className="right"
         >
             Remove
@@ -97,5 +77,5 @@ class Card extends Component {
 }
 }
 
-export default Card;
+export default connect(null, actions)(Card);
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink, Route } from 'react-router-dom';
 
-import Login from './auth-elements/Login';
-import Signup from './auth-elements/Signup';
+import Login from './Login';
+import Signup from './Signup';
 
 const Landings = ({ match }) => {
     return (

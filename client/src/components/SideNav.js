@@ -6,7 +6,6 @@ import axios from 'axios';
 import Movies from './Movies';
 import Categories from './Categories';
 import Watchlist from './Watchlist';
-import { setTimeout } from 'timers';
 
 class SideNav extends Component {
     handleLogout() {
