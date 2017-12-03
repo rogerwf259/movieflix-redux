@@ -27,7 +27,7 @@ class Watchlist extends Component {
         return (
             <div style={{ width: "90%", height: "auto", position: "absolute", right: "0", display: "flex" }}>
                 <div className="row">
-                    {this.state.watchlist.map((movie, i) => <Card data={movie} location="watchlist"/>)}
+                    {this.state.watchlist.map((movie, i) => <Card key={i} data={movie} location="watchlist"/>)}
                 </div>
             </div>
         );

@@ -43,7 +43,7 @@ class SideNav extends Component {
                     id="logout"
                     to="/"
                     className="btn waves-effect waves-light" 
-                    onClick={() => {this.setTimeout(this.handleLogout(), 10000)}}>
+                    onClick={() => {this.handleLogout()}}>
                         Log out
                 </Link>
             </div>

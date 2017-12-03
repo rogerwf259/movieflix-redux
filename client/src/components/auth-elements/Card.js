@@ -5,13 +5,13 @@ import Materialize from 'materialize-css/dist/js/materialize.min.js';
 
 class Card extends Component {
     handleWatchLater(title) {
-        var stat;
         axios.post('/add_watchlist', { title: title }).then((response) => {
             console.log(response);
             this.renderToast(response.data, title);
         });
     }
     handleRemoveWatchlist(title) {
+        console.log('Inside remove watchlist');
         axios.post('/remove_from_watchlist', { title: title }).then((response) => console.log(response.data));
     }
     renderToast(status, title) {
