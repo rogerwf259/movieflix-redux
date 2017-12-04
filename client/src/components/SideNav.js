@@ -29,7 +29,7 @@ class SideNav extends Component {
                             <li><Link to={`/dashboard/categories/Adventure`} render={() => <Categories />}>Adventure</Link></li>
                             <li><Link to={`/dashboard/categories/Science Fiction`} render={() => <Categories />}>Science Fiction</Link></li>
                             <li><Link to={`/dashboard/categories/Comedy`} render={() => <Categories />}>Comedy</Link></li>
-                            <li><Link to={`/dashboard/categories/Documental`} render={() => <Categories />}>Documental</Link></li>
+                            <li><Link to={`/dashboard/categories/Drama`} render={() => <Categories />}>Drama</Link></li>
                         </ul>
                     </div>
                     <div className="menusa_item">

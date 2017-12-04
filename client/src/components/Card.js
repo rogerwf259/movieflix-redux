@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Link } from 'react-router-dom';
@@ -70,7 +69,7 @@ class Card extends Component {
     }
     render() {
     return (
-        <div className="col m3 s6">
+        <div className="col l3 m6 s12">
             {this.whatToRender()}
         </div>
     );
